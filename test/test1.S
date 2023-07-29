@@ -1,0 +1,16 @@
+section .data
+msg db 'h',0x00,'e',0x00,'l',0x00,'l',0x00,'o',0x00,' ',0x00,'w',0x00,'o',0x00,'r',0x00,'l',0x00,'d',0x00,0x0a,0x00,0
+
+section .text
+start:
+	mov ax, 0xb800
+	mov es, ax
+	mov ax, 0x7c0
+	mov ds, ax
+
+	cld
+	mov si, msg
+	mov di, 0
+	mov cx, 11
+	rep movsw
+	jmp $

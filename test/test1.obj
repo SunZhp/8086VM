@@ -1,0 +1,25 @@
+
+test1.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00000000 <.data>:
+   0:	b8 00 b8             	mov    $0xb800,%ax
+   3:	8e c0                	mov    %ax,%es
+   5:	b8 00 7c             	mov    $0x7c00,%ax
+   8:	8e d8                	mov    %ax,%ds
+   a:	8e c8                	mov    %ax,%cs
+   c:	fc                   	cld    
+   d:	be 1c 00             	mov    $0x1c,%si
+  10:	bf 00 00             	mov    $0x0,%di
+  13:	b9 06 00             	mov    $0x6,%cx
+  16:	f3 a5                	rep movsw %ds:(%si),%es:(%di)
+  18:	eb f2                	jmp    0xc
+  1a:	00 00                	add    %al,(%bx,%si)
+  1c:	68 65 6c             	push   $0x6c65
+  1f:	6c                   	insb   (%dx),%es:(%di)
+  20:	6f                   	outsw  %ds:(%si),(%dx)
+  21:	20 77 6f             	and    %dh,0x6f(%bx)
+  24:	72 6c                	jb     0x92
+  26:	64 0a 00             	or     %fs:(%bx,%si),%al
